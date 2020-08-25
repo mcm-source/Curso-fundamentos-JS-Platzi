@@ -15,12 +15,29 @@ var pepe = {
   edad: 27,
 };
 
-function imprimirNombreEnMayusculas({ nombre }) {
-  var nombre = nombre.toUpperCase();
-  console.log(nombre);
+function imprimirNombreEnMayusculas(persona) {
+  var { nombre } = persona;
+  console.log(nombre.toUpperCase());
 }
 
 imprimirNombreEnMayusculas(sacha);
 imprimirNombreEnMayusculas({ nombre: 'Sacha' });
 // imprimirNombreEnMayusculas({apellido:"Lifszyc"});
 console.log();
+
+function imprimirNombreYEdad({ nombre, edad }) {
+  console.log(`Hola soy ${nombre} y tengo ${edad} años`);
+}
+
+imprimirNombreYEdad(sacha);
+
+function cumpleanos(persona) {
+  return {
+    ...persona,
+    edad: persona.edad + 1,
+  };
+}
+console.log(sacha);
+var sacha2 = cumpleanos(sacha);
+console.log(sacha);
+console.log(sacha2);
