@@ -28,3 +28,20 @@ for (var i = 1; i <= DIAS_DEL_ANNO; i++) {
 console.log(
   `Al final  del año ${sacha.nombre} pesa ${sacha.peso.toFixed(2)} kg`
 );
+
+const META = sacha.peso - 3;
+
+const comeMucho = () => Math.random() < 0.3;
+const realizaDeporte = () => Math.random() < 0.4;
+var dias = 0;
+while (sacha.peso > META) {
+  if (comeMucho()) {
+    aumentarDePeso(sacha);
+  }
+  if (realizaDeporte) {
+    adelgazar(sacha);
+  }
+  dias += 1;
+}
+
+console.log(`Pasoron ${dias} días  hasta conseguir objetivo`);
