@@ -44,9 +44,10 @@ imprimirProfesiones(sacha);
 
 const MAYORIA_DE_EDAD = 18;
 
-function esMayorDeEdad(persona) {
-  return persona.edad >= MAYORIA_DE_EDAD;
-}
+const esMayorDeEdad = ({ edad }) => edad >= MAYORIA_DE_EDAD;
+const esMenorDeEdad = ({ edad }) => !esMayorDeEdad({ edad });
+
+console.log(esMenorDeEdad(Juan));
 
 function imprimirSiEsMayorDeEdad(persona) {
   if (esMayorDeEdad(persona)) {
@@ -56,5 +57,14 @@ function imprimirSiEsMayorDeEdad(persona) {
   }
 }
 
+function permitirAcceso(persona) {
+  if (!esMayorDeEdad(persona)) {
+    console.log('Acceso denegado');
+  }
+}
+
 imprimirSiEsMayorDeEdad(sacha);
 imprimirSiEsMayorDeEdad(Juan);
+
+permitirAcceso(sacha);
+permitirAcceso(Juan);
